@@ -25,11 +25,23 @@
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-
 </head>
 <body>
   <div id="map"></div>
 
+
+  <div class="hidden" id="scores">
+    <h3 id="name"></h3>
+    <p>District: <span id='district'></span></p>
+    <ul class="school_detail">
+      <li>Score: <span id="ccrpi"></span></li>
+      <li>Achievement: <span id="achievement"></span></li>
+      <li>Progress: <span id="progress"></span></li>
+      <li>Gap: <span id="gap"></span></li>
+      <li>Performance: <span id="performance"></span></li>
+      <li>Callenge: <span id="challenge"></span></li>
+    </ul>
+  </div>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdS9pUMk6A2Aja2sqWtL8M-se6HPyOsks&sensor=false"></script>
   <script src="scripts/lib/tabletop.js"></script>

@@ -20,19 +20,42 @@ $(document).ready(function(){
 
   var mapOptions = {
     center:    metro5Centroid,
-    zoom:      12,
+    zoom:      10,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     styles: mapStyle
   };
   var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-  var kmlLayerOptions = {
-    preserveViewport: false
-  };
-  var elementaryLayer   = new google.maps.KmlLayer('http://alt.coxnewsweb.com/ajc/_newsapps/2013/temp/scores/data/el.kml'   , kmlLayerOptions);
-  var middleSchoolLayer = new google.maps.KmlLayer('http://alt.coxnewsweb.com/ajc/_newsapps/2013/temp/scores/data/middle_school.kml', kmlLayerOptions);
-  var highSchoolLayer   = new google.maps.KmlLayer('http://alt.coxnewsweb.com/ajc/_newsapps/2013/temp/scores/data/high_school.kml'  , kmlLayerOptions);
+  var elementaryMarkers   = [],
+      middleSchoolMarkers = [],
+      highSchoolMarkers   = [];
 
-  elementaryLayer.setMap(map);
-  window.el = elementaryLayer;
+  Tabletop.init({
+    key: 'https://docs.google.com/spreadsheet/pub?key=0Ap9h1zLSgOWUdFVUZnlaNWthaENxUnJ0RHZCeDl1eFE&output=html',
+    callback: function(data, tabletop) {
+      var schools = tabletop.sheets('elementary').all();
+      $.each(schools, function(idx, school) {
+        var latLng = new google.maps.LatLng(school.latitude, school.longitude);
+        var marker = new google.maps.Marker({
+          position: latLng,
+          title: school.schoolname,
+          icon: function() {
+            if ( school.ccrpiscore >= 90 ) {
+              return 'images/a.png';
+            } else if ( school.ccrpiscore >= 80 ) {
+              return 'images/b.png';
+            } else if ( school.ccrpiscore >= 70 ) {
+              return 'images/c.png';
+            } else if ( school.ccrpiscore >= 60 ) {
+              return 'images/d.png';
+            } else if ( school.ccrpiscore > 0 ) {
+              return 'images/f.png';
+            } else { return  'images/na.png'; };
+          }()
+        });
+        elementaryMarkers.push(marker);
+        marker.setMap(map);
+      });
+    }
+  });
 });

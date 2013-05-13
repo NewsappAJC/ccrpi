@@ -3,15 +3,26 @@ $(document).ready(function(){
 
   var mapStyle = [
   {
-    stylers: [{aturatoin: -100}]
+    stylers: [{
+      saturation: -60
+    }]
+  },
+  {
+    featureType: "poi",
+    stylers: [{visibility: "off"}]
+  },
+  {
+    featureType: "landscape",
+    stylers: [{
+      visibility: "off"
+    }]
   },
   {
     featureType: 'road',
-    stylers: [{visibility: "simplified"}]
-  },
-  {
-    featureType: "road.local",
-    stylers: [{visibility: "off"}]
+    stylers: [{
+      visibility: "simplified",
+      saturation: 70
+    }]
   },
   {
     featureType: "road.arterial",

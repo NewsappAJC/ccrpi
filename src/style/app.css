@@ -1,13 +1,14 @@
-html {
-  height: 100%;
-}
+html { height: 100%; }
 body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
-#map {
-  height: 100%;
+div#map {
+  height: 650px;
+  width: 550px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .hidden {
   display: none;
@@ -15,6 +16,25 @@ body {
 .container {
   height: 100%;
 }
-ul.legand {
+.legand {
   list-style:  none;
+}
+div {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .sidebar {
+    width: 220px;
+    margin-left: 10px;
+    margin-right: 10px;
+    float: left;
+  }
+  div#map {
+    height: 650px;
+    width: 760px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }

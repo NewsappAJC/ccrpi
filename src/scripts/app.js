@@ -30,12 +30,14 @@ $(document).ready(function(){
   }];
 
   var mapOptions = {
-    center:    metro5Centroid,
-    zoom:      10,
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    mapTypeControl: false,
+    center:            metro5Centroid,
+    zoom:              $('#map').width() > 700 ? 10 : 9,
+    mapTypeId:         google.maps.MapTypeId.ROADMAP,
+    mapTypeControl:    false,
     streetViewControl: false,
-    styles: mapStyle
+    panControl:        false,
+    zoomControl:      $('#map').width() > 700 ? true : false,
+    styles:            mapStyle
   };
   var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
@@ -63,8 +65,7 @@ $(document).ready(function(){
               $(template).find('#district'   ).text(function(){ return school.systemname;  });
               $(template).find('#ccrpi'      ).text(function(){ return school.ccrpiscore;  });
               $(template).find('#achievement').text(function(){ return school.achievement; });
-              $(template).find('#progress'   ).text(function(){ return school.progress;    });
-              $(template).find('#performance').text(function(){ return school.performance; });
+              $(template).find('#gap'        ).text(function(){ return school.gap;         });
               $(template).find('#challenge'  ).text(function(){ return school.challenge;   });
               return $(template).html();
             }()

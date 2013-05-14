@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var metro5Centroid = new google.maps.LatLng(33.76, -84.330101);
+  var metro5Centroid = new google.maps.LatLng(33.77, -84.330101);
 
   var mapStyle = [
   {
@@ -33,6 +33,8 @@ $(document).ready(function(){
     center:    metro5Centroid,
     zoom:      10,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
+    mapTypeControl: false,
+    streetViewControl: false,
     styles: mapStyle
   };
   var map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -62,7 +64,6 @@ $(document).ready(function(){
               $(template).find('#ccrpi'      ).text(function(){ return school.ccrpiscore;  });
               $(template).find('#achievement').text(function(){ return school.achievement; });
               $(template).find('#progress'   ).text(function(){ return school.progress;    });
-              $(template).find('#gap'        ).text(function(){ return school.gap;         });
               $(template).find('#performance').text(function(){ return school.performance; });
               $(template).find('#challenge'  ).text(function(){ return school.challenge;   });
               return $(template).html();

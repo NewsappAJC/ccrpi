@@ -27,14 +27,27 @@
 	<![endif]-->
 </head>
 <body>
-    <div>
-      <select id="choose_school_layer">
+  <div id="root" class="container">
+    <div id="sidebar" class="four columns alpha">
+      <h3>Georgia College and Career Ready Performance Index</h3>
+      <p>(Scores range from 0 to 100. Higher scores are better.)</p>
+      <ul class="legand">
+        <li><img src="images/a.png"> 90 or greater</li>
+        <li><img src="images/b.png"> 80 to 89.9</li>
+        <li><img src="images/c.png"> 70 to 79.9</li>
+        <li><img src="images/d.png"> 60 to 69.9</li>
+        <li><img src="images/f.png"> Less than 60</li>
+        <li><img src="images/na.png"> Data not available: <img src="images/na.png"></li>
+      </ul>
+      <hr>
+      Grade level: <select id="choose_school_layer">
         <option value="elementary">Elementary Schools</option>
         <option value="middleschool">Middle Schools</option>
         <option value="highschool">High Schools</option>
       </select>
     </div>
-    <div id="map"></div>
+    <div id="map" class="eight colulmns omega"></div>
+  </div>
 
 
   <div class="hidden" id="scores">
@@ -44,7 +57,6 @@
       <li>Score: <span id="ccrpi"></span></li>
       <li>Achievement: <span id="achievement"></span></li>
       <li>Progress: <span id="progress"></span></li>
-      <li>Gap: <span id="gap"></span></li>
       <li>Performance: <span id="performance"></span></li>
       <li>Callenge: <span id="challenge"></span></li>
     </ul>

@@ -19,21 +19,57 @@
 	<!-- CSS
   ================================================== -->
 	<link rel="stylesheet" href="style/app.css">
-	<link rel="stylesheet" href="style/skeleton.css">
 	<link rel="stylesheet" href="http://host.coxmediagroup.com/ajc/digitalprojects/global/css/iFrame_Medley.css" type="text/css"/>
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-
 </head>
 <body>
-  <div id="map"></div>
+  <div id="root" class="container">
+    <div class="sidebar">
+      <h3>Georgia College and Career Ready Performance Index</h3>
+      <p>(Scores range from 0 to 100. Higher scores are better.)</p>
+      <ul class="legand">
+        <li><img src="images/a.png"> 90 or greater</li>
+        <li><img src="images/b.png"> 80 to 89.9</li>
+        <li><img src="images/c.png"> 70 to 79.9</li>
+        <li><img src="images/d.png"> 60 to 69.9</li>
+        <li><img src="images/f.png"> Less than 60</li>
+        <li><img src="images/na.png"> Data not available: <img src="images/na.png"></li>
+      </ul>
+      <hr>
+      Grade level: <select id="choose_school_layer">
+        <option value="elementary">Elementary Schools</option>
+        <option value="middleschool">Middle Schools</option>
+        <option value="highschool">High Schools</option>
+      </select>
 
+      <p>The state's new report card grades on a scale of 0 to 110. The overall score is made up of four components:</p>
+      <p><strong>Achievement points</strong> are based on results of CRCT tests in grades 3-8 and end-of-course tests in grades 9-12, readiness for the next academic level, and graduation rates. Schools can earn up to 70 points.
+      <p><strong>Progress points</strong> are based on students' academic growth on state tests. Worth up to 15 points.</p>
+      <p><strong>Achievement gap points</strong> are awarded to schools for closing achievement gaps. Worth up to 15 points.</p>
+      <p><strong>Challenge points</strong> are awarded to schools with significant number of economically disadvantaged students, English learners and students with disabilities meeting expectations, or if they exceed the state targets in college-ready programs. Worth up to 10 points.</p>
+
+    </div>
+    <div id="map"></div>
+  </div>
+
+
+  <div class="hidden" id="scores">
+    <h3 id="name"></h3>
+    <p>District: <span id='district'></span></p>
+    <ul class="school_detail">
+      <li>Score: <span id="ccrpi"></span></li>
+      <li>Progress: <span id="progress"></span></li>
+      <li>Achievement: <span id="achievement"></span></li>
+      <li>Achievement gap: <span id="gap"></span></li>
+      <li>Challenge: <span id="challenge"></span></li>
+    </ul>
+  </div>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdS9pUMk6A2Aja2sqWtL8M-se6HPyOsks&sensor=false"></script>
-  <script src="http://d3js.org/d3.v3.min.js"></script>
-  <script src="scripts/lib/underscore-min.js"></script>
+  <script src="scripts/lib/tabletop.js"></script>
 	<script src="scripts/app.js"></script>
 </body>
 </html>
